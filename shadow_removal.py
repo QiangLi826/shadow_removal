@@ -106,8 +106,10 @@ if __name__ == '__main__':
             if os.path.isdir(filepath):
                 getallfile(filepath, os.path.join(outputpath, file))
             else:
-                print(filepath)
-                shadow_removal_of_image(filepath, outputpath)
+                if (filepath.lower().endswith(
+                        ('.bmp', '.dib', '.png', '.jpg', '.jpeg', '.pbm', '.pgm', '.ppm', '.tif', '.tiff'))):
+                    print(filepath)
+                    shadow_removal_of_image(filepath, outputpath)
 
 
 
