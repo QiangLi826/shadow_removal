@@ -120,7 +120,7 @@ if __name__ == '__main__':
         pool.close()
         pool.join()
 
-    getallfile("input", "output")
+    getallfile("input", "outputs")
 
 
 
