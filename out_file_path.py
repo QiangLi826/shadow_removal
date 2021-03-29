@@ -11,8 +11,8 @@ import os
 
 if __name__ == '__main__':
 
+    f = open("test.txt", "w+")
     try:
-        f = open("test.txt", "w+")
 
         def getallfile(inputpath,outputpath):
             allfilelist = os.listdir(inputpath)
