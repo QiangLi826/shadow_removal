@@ -35,7 +35,7 @@ mask_test_list = [data_root + x.strip() for x in mask_test_list]
 
 im_lst = []
 #load image and substract mean value
-for i in range(0, 10):
+for i in range(0, len(im_test_list)):
     im = Image.open(im_test_list[i])
     im = np.array(im, dtype=np.float32)
     print('start--------------------')
