@@ -5,7 +5,7 @@
 
 import os
 import cv2
-
+import numpy as np
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
@@ -21,17 +21,17 @@ def convertImg(path, num):
 
                 print("path_img:    " + path_img)
 
-                img1 = cv2.imread(path_img, 0)
+                img1 = cv2.imdecode(np.fromfile(path_img,dtype=np.uint8), 0)
                 print(img1)
                 print(img1.shape)
                 height, width = img1.shape[:2]
-                size = (int(width * 0.25), int(height * 0.25))
+                size = (int(width * 0.5), int(height * 0.5))
                 img1 = cv2.resize(img1, size, interpolation=cv2.INTER_AREA)
                 print(img1.shape)
-                img1_rgb = cv2.cvtColor(img1, cv2.COLOR_GRAY2RGB)
+                #img1_rgb = cv2.cvtColor(img1, cv2.COLOR_GRAY2RGB)
                 # cv2.imshow('img1_rgb', img1_rgb)
                 print(num + name)
-                cv2.imwrite(num + name, img1_rgb)
+                cv2.imwrite(num + name, img1)
                 # name='1/'+name
                 # txt.write(name+" "+name+'\n')
 
@@ -40,10 +40,10 @@ def convertImg(path, num):
 if __name__ == '__main__':
     print_hi('PyCharm')
 
-    path = 'D:\\code\\shadow_removal\\input2'
+    path = r'D:\work\道路图片\第四条路'
     # txtName='1.txt'
     # txt = open(txtName, 'w')
-    convertImg(path,'D:\\code\\shadow_removal\\output2\\')
+    convertImg(path,r'D:\work\4road_scale_025\\')
     # txt.close()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
